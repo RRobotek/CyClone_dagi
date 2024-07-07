@@ -1,0 +1,17 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+
+      REPLICATE_API_TOKEN: ${REPLICATE_API_TOKEN}
+      PINATA_API_KEY: ${PINATA_API_KEY}
+      PINATA_API_SECRET: ${PINATA_API_SECRET}
+      PINATA_JWT: ${PINATA_JWT}
+
+    ports:
+      - "8000:80"
+    restart: always
+    depends_on:
+      - db
